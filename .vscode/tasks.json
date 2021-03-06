@@ -1,0 +1,38 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "C/C++: g++ 활성 파일 빌드",
+			"command": "/usr/bin/g++",
+			"args": [
+				// 기존의 기본 매개변수 구성.
+				//"-g",
+				// "${file}",
+				// "-o",
+				// "${fileDirname}/${fileBasenameNoExtension}",
+				//
+				
+				// 새롭게 구성 시작.
+				"-std=c++11",
+				"`pkg-config",
+				"opencv4",
+				"--libs",
+				"--cflags",
+				"opencv4`",
+				"${file}",
+				"-o",
+				"${fileDirname}/${fileBasenameNoExtension}"
+				// 새롭게 구성 끝.
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build",
+			"detail": "컴파일러: /usr/bin/g++"
+		}
+	]
+}
